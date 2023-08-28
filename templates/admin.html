@@ -5,13 +5,44 @@
 {% endblock%}
 
 {% block content %}
+    {% if ERROR %}
+    <h1>{{ERROR}}</h1>
+    {% endif %}
+    <section class="dashboard-section">
 
-    <form action="/admin/create_student" method="post">
-        <input type="text" name="fullname" id="">
-        <input type="number" name="age" id="">
-        <input type="number" name="courses" id="">
-        <button type="submit">submit</button>
-    </form>
+        <header>
+            <div class="logo">
+                <img src="" alt="">
+            </div>
+            <nav class="header-nav">
+                <ul class="header-nav-ul">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Chat</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <aside>
+            <nav class="aside-nav">
+                <ul class="aside-nav-ul">
+                    <li><a href="#">Tutors</a></li>
+                    <li><a href="#">Students</a></li>
+                    <li><a href="#">Courses</a></li>
+                    <li><a href="#">Results</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main>
+            <article>
+                <h1>Zennith Colledge, Nigeria</h1>
+            </article>
+        </main>
+        <footer>
+            <p>All Rights reserve by &gt;&gt;&copy; ZennithAcademy &lt;&lt;</p>
+        </footer>
+
+    </section>
 
 {% endblock %}
 
