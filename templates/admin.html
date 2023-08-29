@@ -26,10 +26,17 @@
         <aside class="dashboard-aside">
             <nav class="aside-nav">
                 <ul class="aside-nav-ul">
-                    <li><a href="#">Tutors</a></li>
-                    <li><a href="#">Students</a></li>
-                    <li><a href="#">Courses</a></li>
-                    <li><a href="#">Results</a></li>
+                    <li><span>👨‍🏫👩‍🏫</span><span><a href="#">Students</a></span></li>
+                    <li><span>👩‍🎓👨‍🎓</span><span><a href="#">Tutors</a></span></li>
+                    <li><span>📖📖</span><span><a href="#">Courses</a></span></li>
+                    <li><span>📖📖</span><span><a href="#">Results</a></span></li>
+                </ul>
+            </nav>
+            <nav class="aside-nav">
+                <ul class="aside-nav-ul" id="aside-nav-ul">
+                    <li id="add-new-std">Add New Student</li>
+                    <li id="add-new-tut">Add New Tutor</li>
+                    <li id="add-new-course">Add New Course</li>
                 </ul>
             </nav>
         </aside>
@@ -37,17 +44,17 @@
             <article>
                 <div class="school-datas-wrapper">
                     <div class="total-students">
-                        <h3>students <span>{{students}}</span></h3>
+                        <h3>We have <span>{{students}}</span> Students</h3>
                     </div>
                     <div class="total-tutors">
-                        <h3>Tutors <span>90</span></h3>
+                        <h3>We have <span>{{teachers}}</span> senior Teachers</h3>
                     </div>
                     <div class="total-courses-offered">
-                        <h3>courses <span>48</span></h3>
+                        <h3>We offer <span>20</span> courses </h3>
                     </div>
 
                 </div>
-                <div class="form-wrapper">
+                <div class="form-wrapper" id="form-for-student">
                     <form action="/admin/create_student" method="POST">
                         <fieldset>
                             <legend>REGISTER NEW STUDENT 👨‍👦‍👦📖</legend>
@@ -70,8 +77,40 @@
                                     <label for="age"></label>
                                     <input type="number" name="age" id="age" placeholder="Enter Students Age" required>
     
-                                    <label for="courses"></label>
-                                    <input type="number" name="courses" id="courses" placeholder="Enter Students courses" required>
+                                    <label for="stdCourse"></label>
+                                    <input type="text" name="stdCourse" id="stdCourse" placeholder="Enter Students course" required>
+                                </div>
+                                <button type="submit">Submit</button>
+
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="form-wrapper" id="form-for-tutor">
+                    <form action="/admin/create_tutor" method="POST">
+                        <fieldset>
+                            <legend>REGISTER NEW TUTOR 👨‍👦‍👦📖</legend>
+
+                            {% if ERROR %}
+                            <p style="color: red;">{{ERROR}}</p>
+                            {% endif %}
+
+                            <div class="main-inputs-container">
+
+                                <div class="top-form-wrapp">
+                                    <label for="fullname"></label>
+                                    <input type="text" name="fullname" id="fullname" placeholder="Enter Fullname" required>
+    
+                                    <label for="DOB"></label>
+                                    <input type="text" name="dateofbirth" id="DOB" placeholder="DD/MM/YYYY" required>
+                                </div>
+                                
+                                <div class="bottom-form-wrapp">
+                                    <label for="course"></label>
+                                    <input type="text" name="course" id="course" placeholder="Enter Assigned Course" required>
+    
+                                    <label for="class"></label>
+                                    <input type="text" name="classDay" id="class" placeholder="Enter Assigned Class Day" required>
                                 </div>
                                 <button type="submit">Submit</button>
 
