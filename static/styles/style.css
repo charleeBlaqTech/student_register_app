@@ -86,6 +86,7 @@ body{
     width: 100%;
     background-color: var(--bs-body-color);
     color: white;
+    font-family: var(--bs-body-font-family);
 }
 a{
     text-decoration: none;
@@ -113,16 +114,18 @@ li{
 }
 
 .dashboard-header{
-    /* height: 70px; */
+    height: 60px;
     grid-area: header;
     border: 2px solid white;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: var(--bs-gray-900);
 }
 
 .dashboard-header>.header-nav{
     margin-right: 30px;
+    /* height: 70px; */
 }
 
 .dashboard-header>.header-nav .header-nav-ul{
@@ -134,10 +137,18 @@ li{
     margin-right: 23px;
 }
 
+.dashboard-header>.header-nav .header-nav-ul li a{
+    transition: 1.2s ease;
+}
+.dashboard-header>.header-nav .header-nav-ul li a:hover{
+    color: var(--bs-link-hover-color);
+    text-decoration: underline;
+}
 .dashboard-aside{
     grid-area: aside;
     border: 2px solid white;
     height: 100vh;
+    background-color: var(--bs-indigo);
 }
 
 .dashboard-aside>.aside-nav{
@@ -157,14 +168,13 @@ li{
     width: 210px;
     height: 50px;
     border: 1px solid transparent;
-    background-color: orangered;
     transition: 1.2s ease;
     text-align: center;
     cursor: pointer;
 }
 .dashboard-aside>.aside-nav .aside-nav-ul li:hover{
-    opacity: 0.3;
     border-radius: 13px;
+    background-color: var(--bs-info);
 }
 
 .dashboard-main{
@@ -173,7 +183,97 @@ li{
     height: 100vh;
 }
 
+.dashboard-main .main-heading{
+    text-align: center;
+    font-size: var(--bs-body-font-size);
+    color: var(--bs-cyan);
+}
+.dashboard-main>article .school-datas-wrapper{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.dashboard-main>article .school-datas-wrapper :is(.total-students, .total-tutors, .total-courses-offered){
+    width: 350px;
+    aspect-ratio: 4/3;
+    background-color: var(--bs-gray-800);
+    padding: 40px;
+    border-radius: 12px;
+    transition: 1.4s ease;
+    cursor: pointer;
+}
+
+.dashboard-main>article .school-datas-wrapper :is(.total-students, .total-tutors, .total-courses-offered) span{
+    color: var(--bs-code-color);
+}
+
+.dashboard-main>article .school-datas-wrapper :is(.total-students, .total-tutors, .total-courses-offered):hover{
+    transform: translateY(10px);
+}
+
+
+.dashboard-main>article .form-wrapper{
+    margin-top: 30px;
+}
+.dashboard-main>article .form-wrapper>form>fieldset{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.dashboard-main>article .form-wrapper>form>fieldset>.main-inputs-container{
+    margin-top: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 13px;
+}
+
+.dashboard-main>article .form-wrapper>form>fieldset>.main-inputs-container :is(.top-form-wrapp, .bottom-form-wrapp){
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 14px;
+}
+
+.top-form-wrapp input[type=text]{
+    width: 450px;
+    height: 50px;
+}
+.top-form-wrapp input[type=text]::placeholder{
+    font-size: larger;
+    padding: 0 12px;
+}
+.bottom-form-wrapp input[type=number]{
+    width: 450px;
+    height: 50px;
+}
+.bottom-form-wrapp input[type=number]::placeholder{
+    font-size: larger;
+    padding: 0 12px;
+}
+.dashboard-main>article .form-wrapper>form>fieldset>.main-inputs-container button{
+    width: 240px;
+    height: 50px;
+    margin: 12px auto;
+    border-radius: 11px;
+    color: var(--bs-body-bg);
+    background-color: var(--bs-success);
+    transition: 1.2s ease;
+    cursor: pointer;
+}
+
+.dashboard-main>article .form-wrapper>form>fieldset>.main-inputs-container button:hover{
+    opacity: 0.7;
+}
 .dashboard-footer{
     grid-area: footer;
     border: 2px solid white;
+}
+.dashboard-footer p{
+   text-align: center;
 }

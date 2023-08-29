@@ -22,17 +22,22 @@ def index_render():
 
 @app.route('/admin/')
 def admin_render(): 
-    return render_template('admin.html')
+    total_students= student.count_documents({})
+    return render_template('admin.html', students= total_students)
     
 
 
 @app.route('/admin/create_student', methods=["GET", "POST"])
 def create_new_student():
     student_name = request.form.get('fullname')
+    student_DOB = request.form.get('dateofbirth')
     student_age = request.form.get('age')
     student_courses = request.form.get('courses')
     if not bool(student_name.strip()):
         student_name = ""
+
+    if not bool(student_DOB.strip()):
+        student_DOB = ""
 
     if not bool(student_age.strip()):
         student_age = ""
@@ -40,19 +45,26 @@ def create_new_student():
     if not bool(student_courses.strip()):
         student_courses = ""
    
-    if student_name == "" or student_age == "" or student_courses == "":
-        return render_template("admin.html", ERROR= "Inputs cannot be empty")
+    if student_name == "" or student_age == "" or student_courses == "" or student_DOB == "":
+        return redirect("/admin/", 302)
     else:
-        create_student_database= student.insert_one({
-            "name": student_name,
-            "age": int(student_age),
-            "courses": int(student_courses)
-        })   
-        if bool(create_student_database):
-            return redirect("/index") 
-        else:
-            return render_template('admin.html', ERROR= "Database error, student data not created successfully")  
+        try:
+            create_student_database= student.insert_one({
+                "name": student_name,
+                "age": int(student_age),
+                "courses": int(student_courses),
+                "DOB": student_DOB
+            })   
+            if bool(create_student_database):
+                return redirect("/admin/")  
+                    
+        except Exception as error:
+            # ERROR= "Database error, student data not created successfully"
+            return render_template('admin.html', ERROR= error ) 
 
+
+
+       
     
    
     

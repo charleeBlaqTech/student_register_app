@@ -35,7 +35,50 @@
         </aside>
         <main class="dashboard-main">
             <article>
-                <h1>Zennith Colledge, Nigeria</h1>
+                <div class="school-datas-wrapper">
+                    <div class="total-students">
+                        <h3>students <span>{{students}}</span></h3>
+                    </div>
+                    <div class="total-tutors">
+                        <h3>Tutors <span>90</span></h3>
+                    </div>
+                    <div class="total-courses-offered">
+                        <h3>courses <span>48</span></h3>
+                    </div>
+
+                </div>
+                <div class="form-wrapper">
+                    <form action="/admin/create_student" method="POST">
+                        <fieldset>
+                            <legend>REGISTER NEW STUDENT 👨‍👦‍👦📖</legend>
+
+                            {% if ERROR %}
+                            <p style="color: red;">{{ERROR}}</p>
+                            {% endif %}
+
+                            <div class="main-inputs-container">
+
+                                <div class="top-form-wrapp">
+                                    <label for="fullname"></label>
+                                    <input type="text" name="fullname" id="fullname" placeholder="Enter Fullname" required>
+    
+                                    <label for="DOB"></label>
+                                    <input type="text" name="dateofbirth" id="DOB" placeholder="DD/MM/YYYY" required>
+                                </div>
+                                
+                                <div class="bottom-form-wrapp">
+                                    <label for="age"></label>
+                                    <input type="number" name="age" id="age" placeholder="Enter Students Age" required>
+    
+                                    <label for="courses"></label>
+                                    <input type="number" name="courses" id="courses" placeholder="Enter Students courses" required>
+                                </div>
+                                <button type="submit">Submit</button>
+
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
             </article>
         </main>
         <footer class="dashboard-footer">
