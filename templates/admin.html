@@ -25,18 +25,21 @@
         </header>
         <aside class="dashboard-aside">
             <nav class="aside-nav">
-                <ul class="aside-nav-ul">
-                    <li><span>👨‍🏫👩‍🏫</span><span><a href="#">Students</a></span></li>
-                    <li><span>👩‍🎓👨‍🎓</span><span><a href="#">Tutors</a></span></li>
-                    <li><span>📖📖</span><span><a href="#">Courses</a></span></li>
-                    <li><span>📖📖</span><span><a href="#">Results</a></span></li>
+                <ul class="aside-nav-ul" id="aside-nav-ul">
+                    <li><span>🍱</span><span><a href="#">Dashboard</a></span></li>
+                
+                    <li><span>👨‍🏫</span><span><a href="#">Students</a></span></li>
+                    <li><span>👩‍🎓</span><span><a href="#">Tutors</a></span></li>
+                    <li><span>📖</span><span><a href="#">Courses</a></span></li>
+                    <li><span>📖</span><span><a href="#">Results</a></span></li>
+                    <li id="add-new-std"><span>📖</span><span>Add Student</span></li>
+                    <li id="add-new-tut"><span>📖</span><span>Add Tutor</span></li>
+                    <li id="add-new-course"><span>📖</span><span>Add Course</span></li>
                 </ul>
             </nav>
             <nav class="aside-nav">
-                <ul class="aside-nav-ul" id="aside-nav-ul">
-                    <li id="add-new-std">Add New Student</li>
-                    <li id="add-new-tut">Add New Tutor</li>
-                    <li id="add-new-course">Add New Course</li>
+                <ul class="aside-nav-ul">
+                    <li><span>🔑</span><span><a href="#">Logout</a></span></li>
                 </ul>
             </nav>
         </aside>
@@ -45,12 +48,16 @@
                 <div class="school-datas-wrapper">
                     <div class="total-students">
                         <h3>We have <span>{{students}}</span> Students</h3>
+                        <!-- <svg>
+                            <cirle></cirle>
+                        </svg> -->
                     </div>
                     <div class="total-tutors">
                         <h3>We have <span>{{teachers}}</span> senior Teachers</h3>
                     </div>
                     <div class="total-courses-offered">
                         <h3>We offer <span>20</span> courses </h3>
+                        <input type="date" name="" id="">
                     </div>
 
                 </div>

@@ -108,7 +108,16 @@ def create_new_tutor():
        
     
    
-    
+# HOW TO CONVERT PDF TO DOCX
+
+# from pdftodocx import Converter
+
+# pdf_file = "thefile.pdf"
+# doc_file = "thefile.docx"
+
+# cv = Converter(pdf_file)
+# cv.convert(doc_file)
+# cv.close()
 
 
 
